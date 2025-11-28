@@ -53,7 +53,9 @@ function AppContent() {
                 {user && (
                   <>
                     <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/points">Pontos de Coleta</Link></li>
+                    {user?.role === "ADMIN" && (
+                      <li className="nav-item"><Link className="nav-link" to="/points">Pontos de Coleta</Link></li>
+                    )}
                     <li className="nav-item"><Link className="nav-link" to="/deliveries">Entregas</Link></li>
                     {user.role === "ADMIN" && (
                       <li className="nav-item">
@@ -92,7 +94,14 @@ function AppContent() {
             <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/dashboard" />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
-            <Route path="/points" element={<PrivateRoute><PointsPage /></PrivateRoute>} />
+            <Route
+              path="/points"
+              element={
+                <PrivateRoute>
+                  {user?.role === "ADMIN" ? <PointsPage /> : <Navigate to="/dashboard" />}
+                </PrivateRoute>
+              }
+            />
             <Route path="/deliveries" element={<PrivateRoute><DeliveriesPage /></PrivateRoute>} />
             <Route path="/users" element={<PrivateRoute><UsersPage /></PrivateRoute>} />
           </Routes>
