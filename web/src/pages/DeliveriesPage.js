@@ -224,12 +224,6 @@ function DeliveriesPage() {
         </div>
       </div>
 
-      <button className="btn btn-primary mb-3"
-        onClick={() => window.open("http://localhost:3001/api/reports/deliveries")}
-      >
-        Exportar PDF
-      </button>
-
       {/* Lista de entregas registradas */}
       <h5 className="mb-3">Entregas registradas</h5>
       <table className="table">
