@@ -1,8 +1,9 @@
 
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthProvider, AuthContext } from "./context/AuthContext";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 
 import PointsPage from './pages/PointsPage';
 import DeliveriesPage from './pages/DeliveriesPage';
