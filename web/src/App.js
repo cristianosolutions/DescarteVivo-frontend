@@ -91,7 +91,7 @@ function AppContent() {
         </nav>
 
         {/* ROTAS */}
-        <main className="container my-4 flex-grow-1">
+        <main className="container my-4 flex-grow-1 pt-5">
           <Routes>
             <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/dashboard" />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
